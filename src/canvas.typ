@@ -39,6 +39,8 @@
   assert(length / 1cm != 0,
     message: "Canvas length must be != 0!")
 
+  import "/src/lib/decorations.typ": wave, zigzag, coil
+
   let ctx = (
     length: length,
     debug: debug,
@@ -55,8 +57,14 @@
        (0, 0, .0, 1)),
     // Nodes, stores anchors and paths
     nodes: (:),
-    // group stack
+    // Group stack
     groups: (),
+    // Registeretd decoration functions
+    decorations: (
+      wave: wave,
+      zigzag: zigzag,
+      coil: coil,
+    ),
   )
 
   let (ctx, bounds, drawables) = process.many(ctx, body)
