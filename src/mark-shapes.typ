@@ -304,7 +304,7 @@
     return (ctx.marks.marks.at(symbol), (:))
   }
 
-  let (symbol, defaults) = mnemonics.at(symbol, default: symbol)
+  let (symbol, defaults) = mnemonics.at(symbol, default: (symbol, (:)))
   assert(symbol in marks, message: "Unknown mark '" + symbol + "'")
   return (marks.at(symbol), defaults)
 }
